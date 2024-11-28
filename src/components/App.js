@@ -14,10 +14,32 @@ const initialItems = [
 function App() {
   const [items, setItems] = useState([]);
   const [filterType, setFilterType] = useState("All");
+  const [journeyType, setJourneyType] = useState("General");
+  const suggestions = {
+    General: ["Toothbrush", "Clothes", "Shoes"],
+    Beach: ["Swimsuit", "Sunscreen", "Flip-flops"],
+    Hiking: ["Hiking Boots", "Backpack", "Water Bottle"],
+    Business: ["Suit", "Laptop", "Notebook"],
+    International: ["Passport", "Travel Adapter", "Currency"],
+  };
 
+  function handleSuggestItems() {
+    const suggestedItems = suggestions[journeyType].map((item, index) => ({
+      id: Date.now() + index,
+      description: item,
+      quantity: 1,
+      packed: false,
+      isPriority: false,
+      type: "Others", // Default type
+    }));
+    setItems((prevItems) => [...suggestedItems, ...prevItems]);
+  }
   function handlePackAll(item) {
     const packedItems = items.map((item) => ({ ...item, packed: true }));
     setItems(packedItems);
+  }
+  function handleJourneyChange(e) {
+    setJourneyType(e.target.value);
   }
   function handleAddItems(item) {
     const AddItems = [item,...items]
@@ -54,8 +76,8 @@ function App() {
   : items.filter((item) => item.type === filterType);
   return (
     <div className="app">
-      <Logo />
-      <Form handleAddItems={handleAddItems} handleClearAll={handleClearAll} setFilterType={setFilterType} handlePackAll={handlePackAll} />
+      <Logo journeyType={journeyType} handleJourneyChange={handleJourneyChange} />
+      <Form handleAddItems={handleAddItems} handleClearAll={handleClearAll} setFilterType={setFilterType} handlePackAll={handlePackAll} handleSuggestItems={handleSuggestItems} />
       <PackingList items={filteredItems} handleDeleteItem={handleDeleteItem} handleUpdateItem={handleUpdateItem} handleIncreaseItem={handleIncreaseItem} handleDecreaseItem={handleDecreaseItem}/>
       <Stats items={filteredItems} />
     </div>

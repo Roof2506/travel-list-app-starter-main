@@ -25,6 +25,15 @@ body {
   grid-template-rows: auto auto 1fr auto;
 }
 
+.logo{
+  background-color: #E6EBE0;
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  word-spacing: 30px;
+  letter-spacing: -5px;
+  padding: 0.2rem 0;
+}
 h1 {
   text-align: center;
   background-color: #E6EBE0;

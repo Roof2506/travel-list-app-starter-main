@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Form({handleAddItems, handleClearAll,setFilterType,handlePackAll}) {
+function Form({handleAddItems, handleClearAll,setFilterType,handlePackAll,handleSuggestItems}) {
     const [description, setDescription] = useState("");
     const [quantity, setQuantity] = useState(1);
     const [isPriority, setIsPriority] = useState(false);
@@ -71,6 +71,7 @@ function Form({handleAddItems, handleClearAll,setFilterType,handlePackAll}) {
               </label>
               <button>ADD</button>
             </form>
+            <button onClick={handleSuggestItems}>Auto Suggest Items</button>
             <button onClick={handlePackAll}>Pack All</button>
             <button onClick={handleClearAll}>Clear All</button>
             <text>Filter:</text>
