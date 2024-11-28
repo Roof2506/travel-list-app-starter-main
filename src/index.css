@@ -39,7 +39,7 @@ h1 {
 
 .add-form {
   background-color:#9BC1BC;
-  padding: 2.8rem 0;
+  padding: 2.2rem 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -74,7 +74,6 @@ input {
   background-color: #5D576B;
   color: #F4F1BB;
   padding: 4rem 0;
-
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -106,7 +105,7 @@ input {
 .list li {
   display: flex;
   align-items: center;
-  gap: 1.2rem;
+  gap: 0.3rem;
 }
 
 input[type="checkbox"] {
@@ -119,13 +118,16 @@ input[type="checkbox"] {
   cursor: pointer;
   background: none;
   border: none;
-  font-size: 1.8rem;
-  padding: 0.8rem;
+  font-size: 2.5rem;
+  padding: 0.2rem;
   transform: translateY(2px);
 }
-
+.clear button{
+  text-transform: uppercase;
+  background-color: #18fbff;
+}
 .stats {
-  background-color: #98473E;
+  background-color: #6969B3;
   text-align: center;
   font-weight: 700;
   padding: 3.2rem 0;
