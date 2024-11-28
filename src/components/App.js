@@ -51,7 +51,6 @@ function Item({item}){
   return(
     <li style={{textDecoration: item.packed ? 'line-through' : 'none'}}>
       {item.description} x{item.quantity}
-      <Button title="Delete"/>
     </li>
   )
 }
